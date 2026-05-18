@@ -259,7 +259,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* CONTACT */}
+            {/* CONTACT */}
         <section id="contacto" className="pb-20">
           <div className="flex justify-around rounded-[2rem] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-sm">
           <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-violet-500/30 hover:bg-violet-500/5">
