@@ -274,7 +274,7 @@ export default function PortfolioPage() {
               <div>
                 <p className="text-sm text-gray-400">Linkedin</p>
                 <h2 className="text-white font-medium">
-                  Nicolás Del
+                  Nicolás Del Fabro
                 </h2>
               </div>
             </a>
