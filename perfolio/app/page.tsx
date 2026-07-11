@@ -93,7 +93,7 @@ export default function PortfolioPage() {
         >
           <div>
             <div className="mb-6 inline-flex items-center rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm text-violet-300 backdrop-blur-sm">
-              👋 ¡Hola! Soy Nicolás
+              👋 ¡Hola! Bienvenido a mi perfolio
             </div>
 
             <h2 className="text-5xl font-black leading-tight md:text-7xl">
