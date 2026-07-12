@@ -1,18 +1,42 @@
 import Image from "next/image";
 import linkedin from "../public/linkedin.png";
 import gmail from "../public/gmail.png";
+import {SiReact, SiTypescript, SiNodedotjs, SiTailwindcss, SiNextdotjs, SiMongodb, SiPostgresql,} from "react-icons/si";
+import { FiCpu, FiUsers, FiBookOpen, FiTarget } from "react-icons/fi";
 
 
 export default function PortfolioPage() {
   const technologies = [
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Node.js',
-    'Express',
-    'Tailwind CSS',
-    'TypeORM',
-    'SQL',
+    { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+    { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+    { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+    { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+  ];
+
+  const softSkills = [
+    {
+      title: "Pensamiento lógico",
+      description: "Prefiero una solución simple que funcione a una compleja que impresione.",
+      icon: FiCpu,
+    },
+    {
+      title: "Trabajo en equipo",
+      description: "Sumo, no compito. El mejor resultado es el del equipo.",
+      icon: FiUsers,
+    },
+    {
+      title: "Aprendizaje constante",
+      description: "Hoy aprendiendo ESP32 y C, mañana lo que haga falta.",
+      icon: FiBookOpen,
+    },
+    {
+      title: "Enfoque en el usuario",
+      description: "Una funcionalidad que no se entiende, no sirve.",
+      icon: FiTarget,
+    },
   ];
 
   const projects = [
@@ -110,7 +134,7 @@ export default function PortfolioPage() {
                 <p className="ml-4">name: 'Nicolás Del Fabro',</p>
                 <p className="ml-4">stack: ['Next.js', 'Node.js'],</p>
                 <p className="ml-4">passion: 'Fullstack Development',</p>
-                <p className="ml-4">learning: 'ESP32 & C++'</p>
+                <p className="ml-4">learning: 'ESP32 & C'</p>
                 <p className="text-violet-400">{'}'}</p>
               </div>
             </div>
@@ -124,16 +148,18 @@ export default function PortfolioPage() {
             <span className="text-sm text-violet-400">Stack principal</span>
           </div>
 
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
-            {technologies.map((tech) => (
-              <div
-                key={tech}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-sm transition hover:-translate-y-1 hover:border-violet-500/30 hover:bg-violet-500/5"
-              >
-                <div className="mb-3 h-10 w-10 mx-auto rounded-xl bg-gradient-to-br from-violet-500/20 to-blue-500/20" />
-                <p className="text-sm font-medium text-gray-200">{tech}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
+          {technologies.map(({ name, icon: Icon, color }) => (
+            <div
+              key={name}
+              className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-sm transition hover:-translate-y-1 hover:border-violet-500/30 hover:bg-violet-500/5"
+            >
+            <div className="mb-3 h-10 w-10 mx-auto rounded-xl bg-gradient-to-br from-violet-500/20 to-blue-500/20 flex items-center justify-center">
+              <Icon size={24} color={color} />
+            </div>
+              <p className="text-sm font-medium text-gray-200">{name}</p>
+            </div>
+          ))}
           </div>
         </section>
 
@@ -161,22 +187,17 @@ export default function PortfolioPage() {
             </p>
           </div>
 
-          <div className="grid gap-6">
-            {[
-              'Pensamiento lógico',
-              'Trabajo en equipo',
-              'Aprendizaje constante',
-              'Enfoque en el usuario',
-            ].map((item) => (
+          <div className="grid gap-6 sm:grid-cols-2">
+            {softSkills.map(({ title, description, icon: Icon }) => (
               <div
-                key={item}
-                className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm"
+              key={title}
+              className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm transition hover:-translate-y-1 hover:border-violet-500/30 hover:bg-violet-500/5"
               >
-                <h3 className="text-xl font-semibold">{item}</h3>
-                <p className="mt-3 text-gray-400">
-                  Desarrollo soluciones limpias y enfocadas en una buena
-                  experiencia.
-                </p>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/20 to-blue-500/20">
+                  <Icon size={22} className="text-violet-300" />
+                </div>
+                <h3 className="text-xl font-semibold">{title}</h3>
+                <p className="mt-3 text-gray-400">{description}</p>
               </div>
             ))}
           </div>
