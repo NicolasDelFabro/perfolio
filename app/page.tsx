@@ -1,6 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import linkedin from "../public/linkedin.png";
 import gmail from "../public/gmail.png";
+import Nautico from "../public/nautico.png";
+import TrainX from "../public/TrainX.png"
 import {SiReact, SiTypescript, SiNodedotjs, SiTailwindcss, SiNextdotjs, SiMongodb, SiPostgresql,} from "react-icons/si";
 import { FiCpu, FiUsers, FiBookOpen, FiTarget } from "react-icons/fi";
 
@@ -41,16 +44,20 @@ export default function PortfolioPage() {
 
   const projects = [
     {
-      title: 'Qiwi',
+      title: 'Club Náutico Pergamino (En desarrollo)',
       description:
-        'E-commerce con carrito y dashboard de usuario',
-      tags: ['Next.js', 'TypeScript', 'SQL'],
+        'Pagina publicitaria para el Club Nautico Pergamino)',
+      tags: ['Next.js', 'TypeScript', 'tailwind', 'MapBox'],
+      redirect: 'https://nautico-pergamino.vercel.app/',
+      image: Nautico
     },
     {
       title: 'TrainX',
       description:
         'Completo software para la gestion de gimnasion que cuenta con pasarela de pago, reserva de turno, dashboard de usuario y admin entro otras cosas.',
       tags: ['Next', 'Tailwind', 'TypeScript', 'Node.js', 'TypeORM'],
+      redirect: 'https://github.com/NicolasDelFabro/TrainX.git',
+      image: TrainX
     },
   ];
 
@@ -93,7 +100,7 @@ export default function PortfolioPage() {
         >
           <div>
             <div className="mb-6 inline-flex items-center rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-sm text-violet-300 backdrop-blur-sm">
-              👋 ¡Hola! Bienvenido a mi perfolio
+              👋 ¡Hola! Bienvenido a mi porfolio
             </div>
 
             <h2 className="text-5xl font-black leading-tight md:text-7xl">
@@ -216,12 +223,13 @@ export default function PortfolioPage() {
 
           <div className="grid gap-8 lg:grid-cols-2">
             {projects.map((project) => (
-              <div
+              <Link href={project.redirect}>
+                <div
                 key={project.title}
                 className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition hover:-translate-y-2 hover:border-violet-500/20"
               >
-                <div className="h-52 bg-gradient-to-br from-violet-500/20 to-blue-500/10" />
-
+                <Image src={project.image} alt="Imagen de proyecto" className="h-full w-full"/>
+                <div className=" bg-gradient-to-br from-violet-500/20 to-blue-500/10" />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold">{project.title}</h3>
 
@@ -241,6 +249,7 @@ export default function PortfolioPage() {
                   </div>
                 </div>
               </div>
+              </Link>
             ))}
           </div>
         </section>
@@ -254,7 +263,7 @@ export default function PortfolioPage() {
                   Proyecto destacado
                 </div>
 
-                <h2 className="text-5xl font-black">TrainX</h2>
+                <h2 className="text-5xl font-black">Club Náutico Pergamino</h2>
 
                 <p className="mt-6 max-w-xl leading-relaxed text-gray-300">
                 Completo software para la gestion de gimnasion que cuenta con pasarela de pago, 
@@ -262,7 +271,7 @@ export default function PortfolioPage() {
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  {['Next.js', 'TypeScript', 'Tailwind', 'Node.js', 'TypeORM', 'Mercado Pago', 'SQL'].map(
+                  {['Next.js', 'TypeScript', 'Tailwind', 'MapBox'].map(
                     (tag) => (
                       <span
                         key={tag}
@@ -275,7 +284,8 @@ export default function PortfolioPage() {
                 </div>
               </div>
 
-              <div className="h-[320px] rounded-3xl border border-white/10 bg-[#0a0f1f] shadow-2xl shadow-violet-900/20" />
+              <Image src={Nautico} alt="Imagen de proyecto"
+              className="h-[320px] rounded-3xl border border-white/10 bg-[#0a0f1f] shadow-2xl shadow-violet-900/20" />
             </div>
           </div>
         </section>
