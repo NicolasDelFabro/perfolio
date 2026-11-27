@@ -6,6 +6,7 @@ import Nautico from "../public/nautico.png";
 import TrainX from "../public/TrainX.png"
 import {SiReact, SiTypescript, SiNodedotjs, SiTailwindcss, SiNextdotjs, SiMongodb, SiPostgresql,} from "react-icons/si";
 import { FiCpu, FiUsers, FiBookOpen, FiTarget } from "react-icons/fi";
+import ContactForm from "./components/ContactForm";
 
 
 export default function PortfolioPage() {
@@ -329,6 +330,12 @@ export default function PortfolioPage() {
             </div>
           </div>
         </section>
+        {/* FORMULARIO DE CONTACTO */}
+                  <section className="">
+                    <div>
+                        <ContactForm />
+                    </div>
+                  </section>
       </div>
     </main>
   );
